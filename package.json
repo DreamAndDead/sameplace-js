@@ -1,6 +1,6 @@
 {
   "name": "sameplace-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple gps coordinate transformer.",
   "main": "index.js",
   "scripts": {
