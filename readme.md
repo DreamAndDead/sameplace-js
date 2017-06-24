@@ -13,20 +13,65 @@ GPS坐标系统有多种标准，遵循不同的标准，相同的GPS经纬度�
 
 ## 安装
 
+    npm install --save sameplace-js
+
+## example
+
+```javascript
+// ES6
+import transformer, { makeCoord, coordLat } from 'sameplace-js'
+
+let wgs = makeCoord(22.34, 44.233511);
+let bd = transformer('wgs', 'bd', wgs);
+
+console.log('bd latitude', coordLat(bd));
+```
+
+## usage
+```javascript
+// ES6
+import transformer, { makeCoord, coordLat, coordLon } from 'sameplace-js'
+
+// CommonJS
+var sameplace = require("sameplace-js");
+var transformer = sameplace.default;
+var makeCoord = sameplace.makeCoord;
+var coordLat = sameplace.coordLat;
+var coordLon = sameplace.coordLon;
+
+// AMD
+define([ "sameplace-js", function(sameplace) {
+    // sameplace is available
+    var sameplace = require("sameplace-js");
+    var transformer = sameplace.default;
+    var makeCoord = sameplace.makeCoord;
+    var coordLat = sameplace.coordLat;
+    var coordLon = sameplace.coordLon;
+});
+```
 
 ## API
+type:
+- number: latitude, longitude
+- object: coord
+- string (one of 'wgs', 'gcj' and 'bd'): from, to
 
-transformCoord(from, to, coord)
-return newCoord
+    // create a coord
+    makeCoord(latitude, longitude) ==> coord
 
-from/to: 'wgs', 'gcj', 'bd'
+    // get latitude
+    coordLat(coord) ==> latitude
 
-coord/newCoord: { latitude: number, longitude: number }
+    // get longitude
+    coordLon(coord) ==> longitude
+
+    // coordinate transformer
+    transformer(from, to, fromCoord) ==> toCoord
 
 ## 参考链接
 
-http://www.jianshu.com/p/0fe30fcd4ae7
+[gps坐标标准的区别](http://www.jianshu.com/p/0fe30fcd4ae7)
 
-[gps查询](http://www.gpsspg.com/maps.htm)
+[gps坐标查询（支持多标准）](http://www.gpsspg.com/maps.htm)
 
 
