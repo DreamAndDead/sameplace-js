@@ -13,12 +13,15 @@ GPS坐标系统有多种标准，遵循不同的标准，相同的GPS经纬度�
 
 ## 安装
 
+
 ## API
 
-wgs2gcj, gcj2wgs
+transformCoord(from, to, coord)
+return newCoord
 
-gcj2bd, bd2gcj
+from/to: 'wgs', 'gcj', 'bd'
 
+coord/newCoord: { latitude: number, longitude: number }
 
 ## 参考链接
 

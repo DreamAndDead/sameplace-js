@@ -1,0 +1,29 @@
+{
+  "name": "sameplace-js",
+  "version": "1.0.0",
+  "description": "a simple gps coordinate transformer.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreamAndDead/sameplace-js.git"
+  },
+  "keywords": [
+    "gps"
+  ],
+  "author": "DreamAndDead",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DreamAndDead/sameplace-js/issues"
+  },
+  "homepage": "https://github.com/DreamAndDead/sameplace-js#readme",
+  "dependencies": {
+    "invariant": "^2.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2"
+  }
+}

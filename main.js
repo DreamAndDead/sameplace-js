@@ -1,21 +1,27 @@
-var gps = require('./gps')
+import converter, {makeCoord, coordLat, coordLon} from './sameplace'
 
 // wgs 坐标转化为 gcj, bd坐标
-var wgs_x = 22.550184;
-var wgs_y = 113.952354;
+let wgs = makeCoord(22.5475670666,113.9410678988);
 
-var gcj_res = gps.wgs2gcj(wgs_x, wgs_y);
-var gcj_x = gcj_res.lat;
-var gcj_y = gcj_res.lon;
+let gcj = converter('wgs', 'gcj', wgs);
 
-var bd_res = gps.gcj2bd(gcj_x, gcj_y);
-var bd_x = bd_res.lat;
-var bd_y = bd_res.lon;
+let bd = converter('wgs', 'bd', wgs);
 
-function betterLog(type, x, y) {
-  console.log(type, x, ',', y);
+function betterLog(type, coord) {
+  console.log(type, coordLat(coord), ',', coordLon(coord));
 }
 
-betterLog('wgs', wgs_x, wgs_y);
-betterLog('gcj', gcj_x, gcj_y);
-betterLog('bd', bd_x, bd_y);
+betterLog('wgs', wgs);
+betterLog('gcj', gcj);
+betterLog('bd', bd);
+
+
+let b = makeCoord(22.5504037212,113.9523378693);
+
+let g = converter('bd', 'gcj', b);
+
+let w = converter('bd', 'wgs', b);
+
+betterLog('bd', b);
+betterLog('g', g);
+betterLog('w', w);
